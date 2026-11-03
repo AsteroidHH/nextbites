@@ -34,7 +34,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <footer className="border-t border-neutral-200 bg-white py-6 text-center text-xs text-neutral-500 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-400">
           <p>
-            © {new Date().getFullYear()} NextBites. Built with Next.js App Router & TypeScript.
+            © 2026 NextBites. Built with Next.js App Router & TypeScript.
           </p>
         </footer>
       </body>
