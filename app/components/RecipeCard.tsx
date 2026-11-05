@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Recipe } from "../data/recipes";
 
 export default function RecipeCard({ recipe }: { recipe: Recipe }) {
@@ -23,7 +24,9 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
         </div>
 
         <h3 className="mt-4 text-xl font-bold tracking-tight text-neutral-900 group-hover:text-amber-600 transition-colors dark:text-neutral-50 dark:group-hover:text-amber-400">
-          {recipe.title}
+          <Link href={`/recipe/${recipe.id}`} className="hover:underline focus:outline-none">
+            {recipe.title}
+          </Link>
         </h3>
 
         <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 line-clamp-3">
@@ -78,6 +81,16 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
             ))}
           </div>
         )}
+
+        <div className="mt-4 pt-3 border-t border-dashed border-neutral-100 dark:border-neutral-800 flex justify-end">
+          <Link
+            href={`/recipe/${recipe.id}`}
+            className="inline-flex items-center gap-1 text-xs font-semibold text-amber-600 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300 transition-colors"
+          >
+            View Recipe
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
       </div>
     </article>
   );
