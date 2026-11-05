@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { recipes, getRecipe } from "../../data/recipes";
 
 export async function generateStaticParams() {
@@ -38,7 +37,11 @@ export default async function RecipeDetailPage({
   const recipe = getRecipe(id);
 
   if (!recipe) {
-    notFound();
+    return (
+      <div className="mx-auto max-w-4xl px-4 py-8 text-center">
+        <p>Recipe not found</p>
+      </div>
+    );
   }
 
   const difficultyColor =
