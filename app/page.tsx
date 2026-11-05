@@ -1,5 +1,5 @@
 import { recipes } from "./data/recipes";
-import RecipeCard from "./components/RecipeCard";
+import RecipeSearch from "./components/RecipeSearch";
 
 export default function HomePage() {
   return (
@@ -22,33 +22,8 @@ export default function HomePage() {
         </p>
       </section>
 
-      {/* Grid Header / Summary */}
-      <div className="mb-6 flex items-center justify-between border-b border-neutral-200 pb-4 dark:border-neutral-800">
-        <div>
-          <h2 className="text-xl font-bold text-neutral-900 dark:text-neutral-100">
-            Featured Recipes
-          </h2>
-          <p className="text-xs text-neutral-500 dark:text-neutral-400">
-            Handcrafted dishes tested for maximum flavor
-          </p>
-        </div>
-        <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300">
-          {recipes.length} recipes available
-        </span>
-      </div>
-
-      {/* Responsive Recipe Grid */}
-      <section
-        aria-label="Recipe List"
-        className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-        style={{
-          gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-        }}
-      >
-        {recipes.map((recipe) => (
-          <RecipeCard key={recipe.id} recipe={recipe} />
-        ))}
-      </section>
+      {/* Interactive Search + Grid */}
+      <RecipeSearch initialRecipes={recipes} />
     </div>
   );
 }
